@@ -86,12 +86,6 @@ project-root/
 - Đảm bảo code coverage > 80%
 - Review code trước khi merge
 
-## 📚 Tài liệu tham khảo
-
-- [Tài liệu chính thức Cloudflare Workers](https://developers.cloudflare.com/workers/)
-- [Hướng dẫn Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/)
-- [Thực hành tốt nhất](https://developers.cloudflare.com/workers/learning/how-workers-works/)
-
 ## 🤝 Đóng góp
 
 Chúng tôi luôn chào đón mọi đóng góp từ cộng đồng. Để đóng góp:
@@ -108,6 +102,6 @@ Dự án được phân phối dưới giấy phép MIT. Xem `LICENSE` để bi�
 
 ## 📧 Liên hệ
 
-[Tên của bạn] - [@giangpt2808](https://twitter.com/giangpt2808) - <email@example.com>
+[Tên của bạn] - [@giangpt2808](https://twitter.com/giangpt2808) - <giangpt@duck.com>
 
 Link dự án: [https://github.com/giangcse/CFW-WeddingSite](https://github.com/giangcse/CFW-WeddingSite)
