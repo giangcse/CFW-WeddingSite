@@ -24,7 +24,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
 	<link href="statics/css/style.css" rel="stylesheet">
-    <script src="statics/js/sendmessage.js"></script>
+    <!-- <script src="statics/js/sendmessage.js"></script> -->
+    <script src="statics/js/fn.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -116,7 +117,7 @@
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
                         <h3 class="mb-3">Chú rể</h3>
                         <h3 class="font-weight-normal text-muted mb-3"><i class="fa fa-male text-primary pr-3"></i>Phan Thanh Giảng</h3>
-                        <p>26 tuổi<br>Trưởng nam<br>Tam Bình, Vĩnh Long</p>
+                        <p>26 tuổi<br>Trưởng nam<br>Xã Song Phú, Tỉnh Vĩnh Long (Tam Bình, Vĩnh Long)</p>
                         <div class="position-relative">
                             <a class="btn btn-outline-primary btn-square mr-1" href="https://zalo.me/giangpt2808">
                                 <span style="display: inline-block;">
@@ -139,7 +140,7 @@
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
                         <h3 class="mb-3">Cô dâu</h3>
                         <h3 class="font-weight-normal text-muted mb-3"><i class="fa fa-female text-primary pr-3"></i>Nguyễn Bích Ngân</h3>
-                        <p>25 tuổi<br>Út nữ<br>Phước Long, Bạc Liêu</p>
+                        <p>25 tuổi<br>Út nữ<br>Xã Vĩnh Phước, Tỉnh Cà Mau (Phước Long, Bạc Liêu)</p>
                         <div class="position-relative">
                             <a class="btn btn-outline-primary btn-square mr-1" href="https://zalo.me/0943803503">
                                 <span style="display: inline-block;">
@@ -373,7 +374,7 @@
             <div class="d-flex justify-content-center py-2">
                 <p class="text-white" href="#">giangpt@duck.com</p>
                 <span class="px-3">|</span>
-                <p class="text-white" href="tel:0914747190">(84) 91 4747 190</p>
+                <p class="text-white" href="tel:0914747190">(+84) 91 4747 190</p>
             </div>
             <!-- <p class="m-0">&copy; <a class="text-primary" href="#">Domain Name</a>. Designed by <a class="text-primary" href="https://htmlcodex.com">HTML Codex</a>
             </p> -->
@@ -399,7 +400,7 @@
           var now = new Date().getTime();
   
           // Find the distance between now and the count down date
-          var distance = countDownDate - now;
+          var distance = now - countDownDate;
   
           // Time calculations for days, hours, minutes and seconds
           var days = Math.floor(distance / (1000 * 60 * 60 * 24));
