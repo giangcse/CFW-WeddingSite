@@ -44,9 +44,95 @@
     html {
       scroll-behavior: smooth;
     }
+    .timeline {
+      position: relative;
+      margin: 0;
+      padding-left: 1.75rem;
+      list-style: none;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      inset-block: 0;
+      left: 0.5rem;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(198, 124, 150, 0.8), rgba(246, 231, 236, 0.3));
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0.35rem;
+      left: 0.5rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 9999px;
+      border: 2px solid #c67c96;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(198, 124, 150, 0.12);
+      transform: translateX(-50%);
+    }
+    .scroll-top-button {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      display: inline-flex;
+      height: 3rem;
+      width: 3rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      background: #c67c96;
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(198, 124, 150, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(20px);
+      z-index: 70;
+    }
+    .scroll-top-button:hover {
+      background: #b86882;
+    }
+    .scroll-top-button.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .loading-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #c67c96, #b86882);
+      box-shadow: 0 0 15px rgba(198, 124, 150, 0.5);
+      opacity: 0;
+      transition: width 0.7s ease, opacity 0.3s ease;
+      z-index: 80;
+    }
+    .loading-bar.active {
+      opacity: 1;
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      .timeline {
+        padding-left: 2.5rem;
+      }
+      .timeline::before {
+        left: 1rem;
+      }
+      .timeline-item {
+        padding-left: 2.5rem;
+      }
+    }
   </style>
 </head>
 <body class="antialiased">
+  <div id="pageLoader" class="loading-bar" role="presentation"></div>
   <header class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur shadow-sm">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
       <a href="#home" class="flex items-center space-x-3 text-lg font-semibold text-brand">
@@ -85,7 +171,7 @@
           <span class="rounded-full border border-white/60 px-6 py-2">Vĩnh Long</span>
         </div>
         <div class="mt-10">
-          <p class="text-xs uppercase tracking-[0.4em] text-brand-light">Đếm ngược</p>
+          <p id="timeStatus" class="text-xs uppercase tracking-[0.4em] text-brand-light">Khoảng thời gian kể từ ngày cưới</p>
           <div id="countdown" class="mt-3 flex flex-wrap items-center justify-center gap-4 text-lg font-semibold md:text-2xl"></div>
         </div>
       </div>
@@ -97,31 +183,39 @@
         <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Từ những khoảnh khắc nhỏ bé</h2>
         <p class="mt-4 text-lg text-slate-600">Tình yêu của chúng mình được vun đắp qua từng ngày với sự chân thành, thấu hiểu và sẻ chia. Dưới đây là những cột mốc đáng nhớ.</p>
       </div>
-      <div class="grid gap-8 md:grid-cols-3">
-        <article class="group rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-lg">
-          <div class="flex items-center justify-between">
-            <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2017</span>
-            <span class="text-sm text-brand-dark/70">Lần đầu gặp</span>
-          </div>
-          <h3 class="mt-6 text-xl font-semibold text-brand-dark">Lời chào đầu tiên</h3>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">Chúng mình gặp nhau trong một buổi cà phê của nhóm bạn chung. Ánh mắt đầu tiên trao nhau đã gieo nên những rung động nhẹ nhàng.</p>
-        </article>
-        <article class="group rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-lg">
-          <div class="flex items-center justify-between">
-            <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2019</span>
-            <span class="text-sm text-brand-dark/70">Hẹn hò</span>
-          </div>
-          <h3 class="mt-6 text-xl font-semibold text-brand-dark">Nói lời yêu</h3>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">Sau nhiều lần trò chuyện và đồng hành trong mọi khoảnh khắc, chúng mình chính thức trở thành một đôi.</p>
-        </article>
-        <article class="group rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-2 hover:shadow-lg">
-          <div class="flex items-center justify-between">
-            <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2023</span>
-            <span class="text-sm text-brand-dark/70">Cầu hôn</span>
-          </div>
-          <h3 class="mt-6 text-xl font-semibold text-brand-dark">Trao nhẫn cưới</h3>
-          <p class="mt-4 text-sm leading-relaxed text-slate-600">Giữa khung cảnh hoàng hôn, anh đã quỳ xuống và hỏi “Em sẽ cưới anh chứ?”. Một cái gật đầu và những giọt nước mắt hạnh phúc.</p>
-        </article>
+      <div class="relative mt-12">
+        <ol class="timeline space-y-10">
+          <li class="timeline-item">
+            <div class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2017</span>
+                <span class="text-sm text-brand-dark/70">Lần đầu gặp</span>
+              </div>
+              <h3 class="mt-6 text-xl font-semibold text-brand-dark">Lời chào đầu tiên</h3>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">Chúng mình gặp nhau trong một buổi cà phê của nhóm bạn chung. Ánh mắt đầu tiên trao nhau đã gieo nên những rung động nhẹ nhàng.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2019</span>
+                <span class="text-sm text-brand-dark/70">Hẹn hò</span>
+              </div>
+              <h3 class="mt-6 text-xl font-semibold text-brand-dark">Nói lời yêu</h3>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">Sau nhiều lần trò chuyện và đồng hành trong mọi khoảnh khắc, chúng mình chính thức trở thành một đôi.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2023</span>
+                <span class="text-sm text-brand-dark/70">Cầu hôn</span>
+              </div>
+              <h3 class="mt-6 text-xl font-semibold text-brand-dark">Trao nhẫn cưới</h3>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">Giữa khung cảnh hoàng hôn, anh đã quỳ xuống và hỏi “Em sẽ cưới anh chứ?”. Một cái gật đầu và những giọt nước mắt hạnh phúc.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -241,6 +335,12 @@
     </div>
   </footer>
 
+  <button id="scrollTop" class="scroll-top-button" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
@@ -250,21 +350,25 @@
 
     const weddingDate = new Date('2023-03-12T09:00:00+07:00');
     const countdownEl = document.getElementById('countdown');
+    const timeStatus = document.getElementById('timeStatus');
 
     function updateCountdown() {
       const now = new Date();
       const diff = now.getTime() - weddingDate.getTime();
+      const absDiff = Math.abs(diff);
 
-      if (!countdownEl) return;
-      if (diff <= 0) {
-        countdownEl.innerHTML = '<span class="rounded-full bg-white/10 px-6 py-3">Ngày vui đã bắt đầu!</span>';
-        return;
+      if (!countdownEl || !timeStatus) return;
+
+      if (diff >= 0) {
+        timeStatus.textContent = 'Khoảng thời gian kể từ ngày cưới';
+      } else {
+        timeStatus.textContent = 'Khoảng thời gian còn lại đến ngày cưới';
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      const days = Math.floor(absDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((absDiff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((absDiff / (1000 * 60)) % 60);
+      const seconds = Math.floor((absDiff / 1000) % 60);
 
       countdownEl.innerHTML = `
         <span class="rounded-full border border-white/40 px-5 py-2">${days} ngày</span>
@@ -283,6 +387,42 @@
       formFeedback.textContent = 'Cảm ơn bạn! Chúng mình đã nhận được lời nhắn.';
       formFeedback.classList.remove('hidden');
     });
+
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const pageLoader = document.getElementById('pageLoader');
+    let loaderActive = false;
+
+    function triggerLoader() {
+      if (!pageLoader || loaderActive) return;
+      loaderActive = true;
+      pageLoader.classList.add('active');
+      setTimeout(() => {
+        pageLoader.classList.remove('active');
+        loaderActive = false;
+      }, 1100);
+    }
+
+    function handleScroll() {
+      if (scrollTopBtn) {
+        if (window.scrollY > 400) {
+          scrollTopBtn.classList.add('show');
+        } else {
+          scrollTopBtn.classList.remove('show');
+        }
+      }
+
+      const scrollPosition = window.innerHeight + window.scrollY;
+      if (scrollPosition >= document.body.offsetHeight - 80) {
+        triggerLoader();
+      }
+    }
+
+    scrollTopBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
   </script>
 </body>
 </html>
