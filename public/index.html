@@ -81,7 +81,7 @@
         <h1 class="mt-6 font-heading text-5xl leading-tight md:text-6xl">Thanh Giảng &amp; Bích Ngân</h1>
         <p class="mt-6 text-lg leading-relaxed md:text-xl">Hân hoan mời bạn đến chung vui trong ngày trọng đại của chúng mình. Sự hiện diện của bạn là niềm hạnh phúc lớn lao nhất.</p>
         <div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm uppercase tracking-[0.35em] text-brand-light">
-          <span class="rounded-full border border-white/60 px-6 py-2">11.03.2023</span>
+          <span class="rounded-full border border-white/60 px-6 py-2">12.03.2023</span>
           <span class="rounded-full border border-white/60 px-6 py-2">Vĩnh Long</span>
         </div>
         <div class="mt-10">
@@ -135,8 +135,8 @@
         <div class="mt-12 grid gap-8 md:grid-cols-2">
           <div class="rounded-3xl bg-white p-8 shadow-sm">
             <h3 class="text-sm uppercase tracking-[0.35em] text-brand-dark">Nhà Gái</h3>
-            <p class="mt-2 text-2xl font-semibold text-brand-dark">11.03.2023 &mdash; 20/02 ÂL</p>
-            <p class="mt-4 text-slate-600">Ấp Tân Quới Hưng, Xã Trường Thành, Huyện Thới Lai, TP. Cần Thơ.</p>
+            <p class="mt-2 text-2xl font-semibold text-brand-dark">12.03.2023 &mdash; 21/02 ÂL</p>
+            <p class="mt-4 text-slate-600">Xã Vĩnh Phú Tây, Huyện Phước Long, Tỉnh Bạc Liêu.</p>
             <ul class="mt-6 space-y-3 text-sm text-slate-600">
               <li><span class="font-semibold text-brand-dark">09:00</span> &mdash; Đón khách</li>
               <li><span class="font-semibold text-brand-dark">11:00</span> &mdash; Khai tiệc &amp; chúc mừng</li>
@@ -145,7 +145,7 @@
           <div class="rounded-3xl bg-white p-8 shadow-sm">
             <h3 class="text-sm uppercase tracking-[0.35em] text-brand-dark">Nhà Trai</h3>
             <p class="mt-2 text-2xl font-semibold text-brand-dark">12.03.2023 &mdash; 21/02 ÂL</p>
-            <p class="mt-4 text-slate-600">Xã Song Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
+            <p class="mt-4 text-slate-600">Xã Long Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
             <ul class="mt-6 space-y-3 text-sm text-slate-600">
               <li><span class="font-semibold text-brand-dark">10:00</span> &mdash; Lễ gia tiên</li>
               <li><span class="font-semibold text-brand-dark">12:00</span> &mdash; Tiệc cưới &amp; tri ân</li>
@@ -219,8 +219,8 @@
             <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Hẹn gặp ở Vĩnh Long</h2>
             <p class="mt-4 text-lg text-slate-600">Đám cưới sẽ diễn ra tại quê hương thân thương của chúng mình. Cảm ơn bạn đã không ngại đường xa để đến chung vui.</p>
             <div class="mt-8 space-y-4 text-sm text-slate-600">
-              <p><span class="font-semibold text-brand-dark">Nhà gái:</span> Ấp Tân Quới Hưng, Xã Trường Thành, Huyện Thới Lai, TP. Cần Thơ.</p>
-              <p><span class="font-semibold text-brand-dark">Nhà trai:</span> Xã Song Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
+              <p><span class="font-semibold text-brand-dark">Nhà gái:</span> Xã Vĩnh Phú Tây, Huyện Phước Long, Tỉnh Bạc Liêu.</p>
+              <p><span class="font-semibold text-brand-dark">Nhà trai:</span> Xã Long Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
             </div>
           </div>
           <div class="overflow-hidden rounded-3xl shadow-sm">
@@ -248,12 +248,12 @@
       mobileNav.classList.toggle('hidden');
     });
 
-    const weddingDate = new Date('2023-03-11T09:00:00+07:00');
+    const weddingDate = new Date('2023-03-12T09:00:00+07:00');
     const countdownEl = document.getElementById('countdown');
 
     function updateCountdown() {
       const now = new Date();
-      const diff = weddingDate.getTime() - now.getTime();
+      const diff = now.getTime() - weddingDate.getTime();
 
       if (!countdownEl) return;
       if (diff <= 0) {
