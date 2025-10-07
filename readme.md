@@ -102,6 +102,6 @@ Dự án được phân phối dưới giấy phép MIT. Xem `LICENSE` để bi�
 
 ## 📧 Liên hệ
 
-[Tên của bạn] - [@giangpt2808](https://twitter.com/giangpt2808) - <giangpt@duck.com>
+[giangpt] - [@giangpt2808](https://twitter.com/giangpt2808) - <giangpt@duck.com>
 
 Link dự án: [https://github.com/giangcse/CFW-WeddingSite](https://github.com/giangcse/CFW-WeddingSite)
