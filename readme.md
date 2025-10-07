@@ -2,7 +2,7 @@
 
 ## 📝 Giới thiệu
 
-Dự án này là một giải pháp serverless hiện đại được phát triển trên nền tảng Cloudflare Workers. Với việc tận dụng mạng lưới edge của Cloudflare, dự án cung cấp khả năng xử lý request với độ trễ cực thấp và hiệu năng cao trên phạm vi toàn cầu.
+Trang web đám cưới sử dụng Cloudflare Workers.
 
 ## 🚀 Ưu điểm nổi bật
 
@@ -33,9 +33,7 @@ cd [tên thư mục dự án]
 2. Cài đặt dependencies:
 
 ```bash
-npm install
-# hoặc
-yarn install
+npm install wrangler -g
 ```
 
 ## ⚙️ Cấu hình
@@ -43,7 +41,7 @@ yarn install
 1. Xác thực với Cloudflare:
 
 ```bash
-wrangler login
+npx wrangler login
 ```
 
 2. Tùy chỉnh file cấu hình `wrangler.toml`:
@@ -59,17 +57,13 @@ workers_dev = true
 ### Môi trường phát triển
 
 ```bash
-npm run dev
-# hoặc
-yarn dev
+npm run
 ```
 
 ### Triển khai production
 
 ```bash
-npm run deploy
-# hoặc
-yarn deploy
+npx wrangler deploy
 ```
 
 ## 📁 Cấu trúc mã nguồn
@@ -114,6 +108,6 @@ Dự án được phân phối dưới giấy phép MIT. Xem `LICENSE` để bi�
 
 ## 📧 Liên hệ
 
-[Tên của bạn] - [@twitter_handle](https://twitter.com/twitter_handle) - <email@example.com>
+[Tên của bạn] - [@giangpt2808](https://twitter.com/giangpt2808) - <email@example.com>
 
-Link dự án: [https://github.com/username/project-name](https://github.com/username/project-name)
+Link dự án: [https://github.com/giangcse/CFW-WeddingSite](https://github.com/giangcse/CFW-WeddingSite)
