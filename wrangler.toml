@@ -3,8 +3,8 @@ name = "wedding_site"
 main = "src/index.js"
 compatibility_date = "2025-10-07"
 routes = [
-    {pattern = "ngan.giangpt.dev", custom_domain = true},
-    {pattern = "www.ngan.giangpt.dev", custom_domain = true}
+    {pattern = "giang-ngan.com", custom_domain = true},
+    {pattern = "www.giang-ngan.com", custom_domain = true}
 ]
 
 [assets]
