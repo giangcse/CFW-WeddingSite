@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thanh Giảng &amp; Bích Ngân</title>
   <meta name="description" content="Website mời đám cưới Thanh Giảng &amp; Bích Ngân - 2023" />
-  <meta name="keywords" content="Website mời đám cưới Thanh Giảng &amp; Bích Ngân - 2023" />
+  <meta name="keywords" content="Wedding Invitation, Thanh Giảng &amp; Bích Ngân" />
   <link rel="icon" href="statics/img/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -18,38 +20,88 @@
           colors: {
             brand: {
               DEFAULT: '#c67c96',
-              dark: '#b86882',
-              light: '#f6e7ec'
-            }
+              dark: '#a14a69',
+              light: '#f7edf1',
+              soft: '#fdf5f7'
+            },
+            midnight: '#2f2132',
+            champagne: '#fef6eb'
           },
           fontFamily: {
-            heading: ['Great Vibes', 'cursive'],
-            body: ['Montserrat', 'sans-serif']
+            heading: ['Cormorant Garamond', 'serif'],
+            script: ['Great Vibes', 'cursive'],
+            body: ['Manrope', 'sans-serif']
+          },
+          boxShadow: {
+            glow: '0 15px 40px rgba(198, 124, 150, 0.25)'
           }
         }
       }
     };
   </script>
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: #fdf8f6;
-      color: #2f1f27;
+    :root {
+      color-scheme: light;
+      --petal-color: rgba(255, 255, 255, 0.38);
+      --petal-highlight: rgba(255, 255, 255, 0.7);
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background: radial-gradient(circle at 0% 0%, rgba(198, 124, 150, 0.12), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(246, 231, 236, 0.5), transparent 50%),
+        linear-gradient(180deg, #fff 0%, #fef6eb 100%);
+      color: #2f1f27;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    .pattern-dots {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
     .bg-hero {
-      background-image: linear-gradient(rgba(21, 21, 21, 0.55), rgba(21, 21, 21, 0.55)), url('statics/img/carousel-1.jpg');
+      background-image: linear-gradient(rgba(32, 20, 27, 0.55), rgba(32, 20, 27, 0.55)), url('statics/img/carousel-1.jpg');
       background-size: cover;
       background-position: center;
     }
-    html {
-      scroll-behavior: smooth;
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.82);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 24px 60px rgba(47, 33, 50, 0.12);
+      backdrop-filter: blur(18px);
     }
+
+    .section-wrapper {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .section-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.08;
+      background: radial-gradient(circle at top left, rgba(198, 124, 150, 0.8), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(47, 33, 50, 0.25), transparent 45%);
+    }
+
     .timeline {
       position: relative;
       margin: 0;
       padding-left: 1.75rem;
       list-style: none;
     }
+
     .timeline::before {
       content: '';
       position: absolute;
@@ -58,10 +110,12 @@
       width: 2px;
       background: linear-gradient(180deg, rgba(198, 124, 150, 0.8), rgba(246, 231, 236, 0.3));
     }
+
     .timeline-item {
       position: relative;
-      padding-left: 1.5rem;
+      padding-left: 1.6rem;
     }
+
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -72,9 +126,10 @@
       border-radius: 9999px;
       border: 2px solid #c67c96;
       background: #fff;
-      box-shadow: 0 0 0 4px rgba(198, 124, 150, 0.12);
+      box-shadow: 0 0 0 5px rgba(198, 124, 150, 0.14);
       transform: translateX(-50%);
     }
+
     .scroll-top-button {
       position: fixed;
       right: 1.5rem;
@@ -87,44 +142,145 @@
       border-radius: 9999px;
       background: #c67c96;
       color: #fff;
-      box-shadow: 0 10px 25px rgba(198, 124, 150, 0.35);
+      box-shadow: 0 15px 35px rgba(198, 124, 150, 0.35);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      transform: translateY(20px);
-      z-index: 70;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      transform: translateY(24px);
+      z-index: 80;
     }
+
     .scroll-top-button:hover {
-      background: #b86882;
+      background: #a14a69;
     }
+
     .scroll-top-button.show {
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
     }
+
     .loading-bar {
       position: fixed;
       top: 0;
       left: 0;
       height: 3px;
       width: 0;
-      background: linear-gradient(90deg, #c67c96, #b86882);
-      box-shadow: 0 0 15px rgba(198, 124, 150, 0.5);
+      background: linear-gradient(90deg, #c67c96, #a14a69);
+      box-shadow: 0 0 15px rgba(198, 124, 150, 0.4);
       opacity: 0;
       transition: width 0.7s ease, opacity 0.3s ease;
-      z-index: 80;
+      z-index: 90;
     }
+
     .loading-bar.active {
       opacity: 1;
       width: 100%;
     }
+
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      bottom: 2rem;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.75rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+    }
+
+    .scroll-indicator::after {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 3rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent);
+      animation: shimmer 2.5s ease-in-out infinite;
+    }
+
+    .petal {
+      position: absolute;
+      width: 18px;
+      height: 28px;
+      background: radial-gradient(circle at 30% 30%, var(--petal-highlight), var(--petal-color));
+      border-radius: 60% 40% 40% 60%;
+      filter: blur(0.3px);
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      color: #c67c96;
+    }
+
+    @keyframes shimmer {
+      0%,
+      100% {
+        opacity: 0.15;
+        transform: scaleY(0.9);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1.1);
+      }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translate3d(0, -120px, 0) rotateZ(0deg);
+        opacity: 0;
+      }
+
+      30% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translate3d(var(--horizontal-shift), calc(100vh + 120px), 0) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .petal {
+        display: none;
+      }
+    }
+
     @media (min-width: 768px) {
       .timeline {
         padding-left: 2.5rem;
       }
+
       .timeline::before {
         left: 1rem;
       }
+
       .timeline-item {
         padding-left: 2.5rem;
       }
@@ -133,114 +289,188 @@
 </head>
 <body class="antialiased">
   <div id="pageLoader" class="loading-bar" role="presentation"></div>
-  <header class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur shadow-sm">
+
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-white/70 backdrop-blur-lg">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-      <a href="#home" class="flex items-center space-x-3 text-lg font-semibold text-brand">
-        <span class="font-heading text-2xl md:text-3xl">G &amp; N</span>
+      <a href="#home" class="flex items-center space-x-3 text-lg font-semibold text-brand-dark" aria-label="Trang chủ">
+        <span class="font-script text-3xl text-brand-dark drop-shadow-sm md:text-4xl">G &amp; N</span>
+        <span class="hidden text-xs uppercase tracking-[0.35em] text-slate-500 sm:inline">Wedding 2023</span>
       </a>
-      <button id="menuToggle" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-brand/40 text-brand transition hover:border-brand hover:bg-brand/10 md:hidden" aria-label="Toggle navigation">
-        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4A1 1 0 013 5zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm1 4a1 1 0 100 2h12a1 1 0 100-2H4z" clip-rule="evenodd" /></svg>
+      <button id="menuToggle"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand/50 text-brand transition hover:border-brand hover:bg-brand/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:hidden"
+        aria-label="Mở menu">
+        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4A1 1 0 013 5zm0 5a1 1 0 011-1h12a1 1 0 010 2H4a1 1 0 01-1-1zm1 4a1 1 0 100 2h12a1 1 0 100-2H4z"
+            clip-rule="evenodd" />
+        </svg>
       </button>
-      <nav id="mainNav" class="hidden items-center space-y-4 pt-6 text-sm font-medium text-slate-700 md:flex md:space-y-0 md:space-x-10 md:pt-0">
-        <a class="hover:text-brand transition" href="#story">Chuyện Tình</a>
-        <a class="hover:text-brand transition" href="#schedule">Lịch Trình</a>
-        <a class="hover:text-brand transition" href="#gallery">Hình Ảnh</a>
-        <a class="hover:text-brand transition" href="#rsvp">Tham Dự</a>
-        <a class="hover:text-brand transition" href="#map">Địa Điểm</a>
+      <nav id="mainNav" class="hidden items-center space-y-4 text-sm font-medium text-slate-700 md:flex md:space-y-0 md:space-x-10"
+        aria-label="Điều hướng chính">
+        <a class="nav-link transition" href="#story" data-section="story">Chuyện Tình</a>
+        <a class="nav-link transition" href="#schedule" data-section="schedule">Lịch Trình</a>
+        <a class="nav-link transition" href="#gallery" data-section="gallery">Hình Ảnh</a>
+        <a class="nav-link transition" href="#rsvp" data-section="rsvp">Tham Dự</a>
+        <a class="nav-link transition" href="#map" data-section="map">Địa Điểm</a>
       </nav>
     </div>
-    <div id="mobileNav" class="hidden border-t border-brand/20 bg-white md:hidden">
+    <div id="mobileNav" class="hidden border-t border-brand/20 bg-white/95 backdrop-blur md:hidden" aria-label="Menu di động">
       <div class="mx-auto flex max-w-6xl flex-col space-y-2 px-6 py-4 text-sm font-medium text-slate-700">
-        <a class="rounded-md px-3 py-2 hover:bg-brand/10 hover:text-brand" href="#story">Chuyện Tình</a>
-        <a class="rounded-md px-3 py-2 hover:bg-brand/10 hover:text-brand" href="#schedule">Lịch Trình</a>
-        <a class="rounded-md px-3 py-2 hover:bg-brand/10 hover:text-brand" href="#gallery">Hình Ảnh</a>
-        <a class="rounded-md px-3 py-2 hover:bg-brand/10 hover:text-brand" href="#rsvp">Tham Dự</a>
-        <a class="rounded-md px-3 py-2 hover:bg-brand/10 hover:text-brand" href="#map">Địa Điểm</a>
+        <a class="nav-link rounded-lg px-3 py-2 transition hover:bg-brand/10" href="#story" data-section="story">Chuyện Tình</a>
+        <a class="nav-link rounded-lg px-3 py-2 transition hover:bg-brand/10" href="#schedule" data-section="schedule">Lịch
+          Trình</a>
+        <a class="nav-link rounded-lg px-3 py-2 transition hover:bg-brand/10" href="#gallery" data-section="gallery">Hình
+          Ảnh</a>
+        <a class="nav-link rounded-lg px-3 py-2 transition hover:bg-brand/10" href="#rsvp" data-section="rsvp">Tham Dự</a>
+        <a class="nav-link rounded-lg px-3 py-2 transition hover:bg-brand/10" href="#map" data-section="map">Địa Điểm</a>
       </div>
     </div>
   </header>
 
-  <main id="home" class="pt-24">
-    <section class="bg-hero relative flex min-h-[70vh] items-center justify-center px-6 py-24 text-center text-white md:min-h-[80vh]">
-      <div class="max-w-3xl">
-        <p class="text-sm uppercase tracking-[0.4em] text-brand-light">Chúng mình kết hôn</p>
-        <h1 class="mt-6 font-heading text-5xl leading-tight md:text-6xl">Thanh Giảng &amp; Bích Ngân</h1>
-        <p class="mt-6 text-lg leading-relaxed md:text-xl">Hân hoan mời bạn đến chung vui trong ngày trọng đại của chúng mình. Sự hiện diện của bạn là niềm hạnh phúc lớn lao nhất.</p>
-        <div class="mt-10 flex flex-wrap items-center justify-center gap-4 text-sm uppercase tracking-[0.35em] text-brand-light">
-          <span class="rounded-full border border-white/60 px-6 py-2">12.03.2023</span>
-          <span class="rounded-full border border-white/60 px-6 py-2">Vĩnh Long</span>
+  <main id="home" class="pt-24 md:pt-28">
+    <section id="hero"
+      class="bg-hero relative flex min-h-[80vh] items-center overflow-hidden px-6 py-24 text-white md:min-h-[85vh]">
+      <div class="absolute inset-0 bg-gradient-to-br from-midnight/70 via-midnight/55 to-brand-dark/60"></div>
+      <div id="petalLayer" class="pointer-events-none absolute inset-0 overflow-hidden"></div>
+      <div class="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-16 md:flex-row md:items-center md:justify-between">
+        <div class="space-y-8 md:max-w-xl">
+          <p class="text-xs uppercase tracking-[0.6em] text-brand-light">Chúng mình kết hôn</p>
+          <div>
+            <p class="text-lg uppercase tracking-[0.35em] text-brand-light/90">Save the date</p>
+            <h1 class="mt-3 font-script text-5xl leading-tight text-white drop-shadow md:text-6xl">Thanh Giảng &amp; Bích Ngân</h1>
+          </div>
+          <p class="text-base leading-relaxed text-brand-light/90 md:text-lg">
+            Hân hoan mời bạn đến chung vui trong ngày trọng đại của chúng mình. Sự hiện diện của bạn là niềm hạnh phúc lớn lao
+            nhất.
+          </p>
+          <div class="flex flex-wrap items-center gap-4 text-sm uppercase tracking-[0.35em] text-brand-light">
+            <span class="rounded-full border border-white/60 px-6 py-2">12.03.2023</span>
+            <span class="rounded-full border border-white/60 px-6 py-2">Vĩnh Long</span>
+          </div>
+          <div>
+            <p id="timeStatus" class="text-xs uppercase tracking-[0.4em] text-brand-light/80">Khoảng thời gian kể từ ngày cưới</p>
+            <div id="countdown" class="mt-4 flex flex-wrap items-center gap-3 text-sm font-semibold md:text-xl"></div>
+          </div>
         </div>
-        <div class="mt-10">
-          <p id="timeStatus" class="text-xs uppercase tracking-[0.4em] text-brand-light">Khoảng thời gian kể từ ngày cưới</p>
-          <div id="countdown" class="mt-3 flex flex-wrap items-center justify-center gap-4 text-lg font-semibold md:text-2xl"></div>
+        <div class="glass-card w-full max-w-md space-y-8 p-10 text-midnight">
+          <div class="space-y-1 text-center">
+            <p class="text-xs uppercase tracking-[0.6em] text-brand-dark/70">Lời nhắn gửi</p>
+            <p class="font-heading text-3xl text-brand-dark">"Tình yêu là hành trình của hai người bạn thân"</p>
+            <p class="text-sm text-slate-600">Hãy đến và viết tiếp câu chuyện cùng chúng mình.</p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="rounded-3xl bg-brand-soft/80 p-4 text-center shadow-glow">
+              <p class="text-[11px] uppercase tracking-[0.4em] text-brand-dark/80">Nhà gái</p>
+              <p class="mt-2 font-heading text-2xl text-brand-dark">09:00</p>
+              <p class="text-xs text-slate-500">Đón khách &amp; tiệc thân mật</p>
+            </div>
+            <div class="rounded-3xl bg-white/90 p-4 text-center shadow-glow">
+              <p class="text-[11px] uppercase tracking-[0.4em] text-brand-dark/80">Nhà trai</p>
+              <p class="mt-2 font-heading text-2xl text-brand-dark">12:00</p>
+              <p class="text-xs text-slate-500">Tiệc cưới &amp; tri ân</p>
+            </div>
+          </div>
+          <a href="#rsvp"
+            class="flex items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand">
+            Gửi lời chúc
+          </a>
         </div>
       </div>
+      <div class="scroll-indicator" aria-hidden="true">Scroll</div>
     </section>
 
-    <section id="story" class="mx-auto max-w-5xl space-y-16 px-6 py-20 md:py-28">
-      <div class="text-center">
-        <p class="text-sm uppercase tracking-[0.4em] text-brand">Chuyện Tình</p>
-        <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Từ những khoảnh khắc nhỏ bé</h2>
-        <p class="mt-4 text-lg text-slate-600">Tình yêu của chúng mình được vun đắp qua từng ngày với sự chân thành, thấu hiểu và sẻ chia. Dưới đây là những cột mốc đáng nhớ.</p>
+    <section id="story" class="section-wrapper mx-auto max-w-5xl px-6 py-24 md:py-32">
+      <div class="reveal text-center">
+        <p class="text-xs uppercase tracking-[0.5em] text-brand-dark">Chuyện Tình</p>
+        <h2 class="mt-4 font-heading text-4xl text-midnight md:text-5xl">Từ những khoảnh khắc nhỏ bé</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+          Tình yêu của chúng mình được vun đắp qua từng ngày với sự chân thành, thấu hiểu và sẻ chia. Dưới đây là những cột mốc
+          đáng nhớ của đôi mình.
+        </p>
       </div>
-      <div class="relative mt-12">
+      <div class="reveal mt-16 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
         <ol class="timeline space-y-10">
           <li class="timeline-item">
-            <div class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="glass-card bg-white/90 p-8 transition hover:-translate-y-1.5 hover:shadow-glow">
               <div class="flex flex-wrap items-center justify-between gap-3">
-                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">4.2021</span>
+                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand-dark">04.2021</span>
                 <span class="text-sm text-brand-dark/70">Lần đầu gặp</span>
               </div>
               <h3 class="mt-6 text-xl font-semibold text-brand-dark">Lời chào đầu tiên</h3>
-              <p class="mt-4 text-sm leading-relaxed text-slate-600">Chúng mình gặp nhau trong một buổi cà phê của nhóm bạn chung. Ánh mắt đầu tiên trao nhau đã gieo nên những rung động nhẹ nhàng.</p>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">
+                Chúng mình gặp nhau trong một buổi cà phê của nhóm bạn chung. Ánh mắt đầu tiên trao nhau đã gieo nên những rung
+                động nhẹ nhàng.
+              </p>
             </div>
           </li>
           <li class="timeline-item">
-            <div class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="glass-card bg-white/90 p-8 transition hover:-translate-y-1.5 hover:shadow-glow">
               <div class="flex flex-wrap items-center justify-between gap-3">
-                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">8.2021</span>
+                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand-dark">08.2021</span>
                 <span class="text-sm text-brand-dark/70">Hẹn hò</span>
               </div>
               <h3 class="mt-6 text-xl font-semibold text-brand-dark">Nói lời yêu</h3>
-              <p class="mt-4 text-sm leading-relaxed text-slate-600">Sau nhiều lần trò chuyện và đồng hành trong mọi khoảnh khắc, chúng mình chính thức trở thành một đôi.</p>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">
+                Sau nhiều lần trò chuyện và đồng hành trong mọi khoảnh khắc, chúng mình chính thức trở thành một đôi.
+              </p>
             </div>
           </li>
           <li class="timeline-item">
-            <div class="rounded-3xl bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+            <div class="glass-card bg-white/90 p-8 transition hover:-translate-y-1.5 hover:shadow-glow">
               <div class="flex flex-wrap items-center justify-between gap-3">
-                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-brand-dark">2023</span>
+                <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-brand-dark">2023</span>
                 <span class="text-sm text-brand-dark/70">Cầu hôn</span>
               </div>
               <h3 class="mt-6 text-xl font-semibold text-brand-dark">Trao nhẫn cưới</h3>
-              <p class="mt-4 text-sm leading-relaxed text-slate-600">Giữa khung cảnh hoàng hôn, anh đã quỳ xuống và hỏi “Em sẽ cưới anh chứ?”. Một cái gật đầu và những giọt nước mắt hạnh phúc.</p>
+              <p class="mt-4 text-sm leading-relaxed text-slate-600">
+                Giữa khung cảnh hoàng hôn, anh đã quỳ xuống và hỏi “Em sẽ cưới anh chứ?”. Một cái gật đầu và những giọt nước mắt
+                hạnh phúc.
+              </p>
             </div>
           </li>
         </ol>
+        <div class="glass-card hidden h-full flex-col justify-center bg-brand-soft/60 p-10 text-center shadow-glow lg:flex">
+          <p class="text-xs uppercase tracking-[0.5em] text-brand-dark/80">Gửi bạn</p>
+          <p class="mt-4 font-heading text-4xl text-brand-dark">"Chúng ta đã đi thật xa để tìm thấy nhau"</p>
+          <p class="mt-4 text-sm text-slate-600">
+            Cảm ơn vì bạn đã đồng hành cùng chúng mình trong từng nấc thang của tình yêu. Hẹn gặp bạn tại đám cưới - nơi chúng
+            ta cùng nâng ly chúc mừng hạnh phúc.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="schedule" class="bg-brand-light/60">
-      <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-        <div class="text-center">
-          <p class="text-sm uppercase tracking-[0.4em] text-brand">Lịch Trình</p>
-          <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Cùng nhau đón chờ ngày vui</h2>
-          <p class="mt-4 text-lg text-slate-600">Chúng mình rất mong bạn sẽ sắp xếp thời gian tham dự cả hai buổi tiệc để chia sẻ niềm vui trọn vẹn.</p>
+    <section id="schedule" class="relative overflow-hidden bg-brand-soft">
+      <div class="absolute inset-0 pattern-dots opacity-40"></div>
+      <div class="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <div class="reveal text-center">
+          <p class="text-xs uppercase tracking-[0.5em] text-brand-dark">Lịch Trình</p>
+          <h2 class="mt-4 font-heading text-4xl text-midnight md:text-5xl">Cùng nhau đón chờ ngày vui</h2>
+          <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+            Chúng mình rất mong bạn sẽ sắp xếp thời gian tham dự cả hai buổi tiệc để chia sẻ niềm vui trọn vẹn.
+          </p>
         </div>
-        <div class="mt-12 grid gap-8 md:grid-cols-2">
-          <div class="rounded-3xl bg-white p-8 shadow-sm">
-            <h3 class="text-sm uppercase tracking-[0.35em] text-brand-dark">Nhà Gái</h3>
-            <p class="mt-2 text-2xl font-semibold text-brand-dark">12.03.2023 &mdash; 21/02 ÂL</p>
-            <p class="mt-4 text-slate-600">Xã Vĩnh Phú Tây, Huyện Phước Long, Tỉnh Bạc Liêu.</p>
-            <ul class="mt-6 space-y-3 text-sm text-slate-600">
-              <li><span class="font-semibold text-brand-dark">09:00</span> &mdash; Đón khách</li>
+        <div class="reveal mt-14 grid gap-8 lg:grid-cols-2">
+          <div class="glass-card h-full bg-white/90 p-10">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="text-sm uppercase tracking-[0.35em] text-brand-dark">Nhà Gái</h3>
+              <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.35em] text-brand-dark">12.03.2023</span>
+            </div>
+            <p class="mt-2 text-2xl font-semibold text-brand-dark">21/02 ÂL &mdash; Bạc Liêu</p>
+            <p class="mt-5 text-slate-600">Xã Vĩnh Phú Tây, Huyện Phước Long, Tỉnh Bạc Liêu.</p>
+            <ul class="mt-6 space-y-4 text-sm text-slate-600">
+              <li><span class="font-semibold text-brand-dark">09:00</span> &mdash; Đón khách &amp; giao lưu</li>
               <li><span class="font-semibold text-brand-dark">11:00</span> &mdash; Khai tiệc &amp; chúc mừng</li>
             </ul>
           </div>
-          <div class="rounded-3xl bg-white p-8 shadow-sm">
-            <h3 class="text-sm uppercase tracking-[0.35em] text-brand-dark">Nhà Trai</h3>
-            <p class="mt-2 text-2xl font-semibold text-brand-dark">12.03.2023 &mdash; 21/02 ÂL</p>
-            <p class="mt-4 text-slate-600">Xã Long Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
-            <ul class="mt-6 space-y-3 text-sm text-slate-600">
+          <div class="glass-card h-full bg-white/90 p-10">
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="text-sm uppercase tracking-[0.35em] text-brand-dark">Nhà Trai</h3>
+              <span class="rounded-full bg-brand/10 px-4 py-1 text-xs font-medium uppercase tracking-[0.35em] text-brand-dark">12.03.2023</span>
+            </div>
+            <p class="mt-2 text-2xl font-semibold text-brand-dark">21/02 ÂL &mdash; Vĩnh Long</p>
+            <p class="mt-5 text-slate-600">Xã Long Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
+            <ul class="mt-6 space-y-4 text-sm text-slate-600">
               <li><span class="font-semibold text-brand-dark">10:00</span> &mdash; Lễ gia tiên</li>
               <li><span class="font-semibold text-brand-dark">12:00</span> &mdash; Tiệc cưới &amp; tri ân</li>
             </ul>
@@ -249,76 +479,105 @@
       </div>
     </section>
 
-    <section id="gallery" class="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <div class="text-center">
-        <p class="text-sm uppercase tracking-[0.4em] text-brand">Hình Ảnh</p>
-        <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Khoảnh khắc yêu thương</h2>
-        <p class="mt-4 text-lg text-slate-600">Những tấm hình lưu giữ nụ cười, ánh mắt và tình yêu mà chúng mình muốn gửi đến bạn.</p>
+    <section id="gallery" class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+      <div class="reveal text-center">
+        <p class="text-xs uppercase tracking-[0.5em] text-brand-dark">Hình Ảnh</p>
+        <h2 class="mt-4 font-heading text-4xl text-midnight md:text-5xl">Khoảnh khắc yêu thương</h2>
+        <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+          Những tấm hình lưu giữ nụ cười, ánh mắt và tình yêu mà chúng mình muốn gửi đến bạn.
+        </p>
       </div>
-      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="group relative overflow-hidden rounded-3xl">
-          <img src="statics/img/gallery-1.jpg" alt="Gallery 1" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        </div>
-        <div class="group relative overflow-hidden rounded-3xl">
-          <img src="statics/img/gallery-2.jpg" alt="Gallery 2" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        </div>
-        <div class="group relative overflow-hidden rounded-3xl">
-          <img src="statics/img/gallery-3.jpg" alt="Gallery 3" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        </div>
-        <div class="group relative overflow-hidden rounded-3xl">
-          <img src="statics/img/gallery-4.jpg" alt="Gallery 4" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        </div>
-        <div class="group relative overflow-hidden rounded-3xl">
-          <img src="statics/img/gallery-5.jpg" alt="Gallery 5" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        </div>
-        <div class="group relative overflow-hidden rounded-3xl">
-          <img src="statics/img/gallery-6.jpg" alt="Gallery 6" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-        </div>
+      <div class="reveal mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <figure class="group relative overflow-hidden rounded-3xl shadow-glow">
+          <img src="statics/img/gallery-1.jpg" alt="Gallery 1" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-3xl shadow-glow">
+          <img src="statics/img/gallery-2.jpg" alt="Gallery 2" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-3xl shadow-glow">
+          <img src="statics/img/gallery-3.jpg" alt="Gallery 3" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-3xl shadow-glow">
+          <img src="statics/img/gallery-4.jpg" alt="Gallery 4" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-3xl shadow-glow">
+          <img src="statics/img/gallery-5.jpg" alt="Gallery 5" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></figcaption>
+        </figure>
+        <figure class="group relative overflow-hidden rounded-3xl shadow-glow">
+          <img src="statics/img/gallery-6.jpg" alt="Gallery 6" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <figcaption class="pointer-events-none absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></figcaption>
+        </figure>
       </div>
     </section>
 
     <section id="rsvp" class="bg-white">
-      <div class="mx-auto max-w-4xl px-6 py-20 md:py-28">
-        <div class="text-center">
-          <p class="text-sm uppercase tracking-[0.4em] text-brand">Tham Dự</p>
-          <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Hẹn gặp bạn tại lễ cưới</h2>
-          <p class="mt-4 text-lg text-slate-600">Hãy để lại vài dòng nhắn gửi để chúng mình chuẩn bị đón tiếp bạn chu đáo nhất nhé!</p>
+      <div class="mx-auto max-w-5xl px-6 py-24 md:py-32">
+        <div class="reveal text-center">
+          <p class="text-xs uppercase tracking-[0.5em] text-brand-dark">Tham Dự</p>
+          <h2 class="mt-4 font-heading text-4xl text-midnight md:text-5xl">Hẹn gặp bạn tại lễ cưới</h2>
+          <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
+            Hãy để lại vài dòng nhắn gửi để chúng mình chuẩn bị đón tiếp bạn chu đáo nhất nhé!
+          </p>
         </div>
-        <form class="mt-12 grid gap-6 rounded-3xl bg-brand-light/60 p-8 shadow-sm md:grid-cols-2">
+        <form class="reveal mt-12 grid gap-6 rounded-3xl bg-brand-light/70 p-10 shadow-glow md:grid-cols-2" novalidate>
           <div class="md:col-span-1">
             <label class="text-sm font-medium text-brand-dark" for="name">Họ và tên</label>
-            <input id="name" type="text" placeholder="Nguyễn Văn A" class="mt-2 w-full rounded-xl border border-brand/30 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40" />
+            <input id="name" type="text" placeholder="Nguyễn Văn A"
+              class="mt-2 w-full rounded-xl border border-brand/30 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+              required />
           </div>
           <div class="md:col-span-1">
             <label class="text-sm font-medium text-brand-dark" for="phone">Số điện thoại</label>
-            <input id="phone" type="tel" placeholder="0123 456 789" class="mt-2 w-full rounded-xl border border-brand/30 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40" />
+            <input id="phone" type="tel" placeholder="0123 456 789"
+              class="mt-2 w-full rounded-xl border border-brand/30 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"
+              required />
           </div>
           <div class="md:col-span-2">
             <label class="text-sm font-medium text-brand-dark" for="message">Lời nhắn</label>
-            <textarea id="message" rows="4" placeholder="Chúng mình sẽ có mặt!" class="mt-2 w-full rounded-xl border border-brand/30 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/40"></textarea>
+            <textarea id="message" rows="4" placeholder="Chúng mình sẽ có mặt!"
+              class="mt-2 w-full rounded-xl border border-brand/30 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30"></textarea>
           </div>
-          <div class="md:col-span-2">
-            <button type="button" id="sendMessage" class="inline-flex w-full items-center justify-center rounded-xl bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-brand-dark">Gửi lời chúc</button>
-            <p id="formFeedback" class="mt-3 hidden text-center text-sm font-medium text-brand-dark"></p>
+          <div class="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
+            <div class="flex items-center gap-3 text-xs text-slate-600">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand shadow-glow">❤</span>
+              <p>Chúng mình sẽ phản hồi lời nhắn của bạn sớm nhất.</p>
+            </div>
+            <div class="md:text-right">
+              <button type="button" id="sendMessage"
+                class="inline-flex w-full items-center justify-center rounded-full bg-brand px-6 py-3 text-sm font-semibold uppercase tracking-[0.3em] text-white shadow-lg transition hover:bg-brand-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:w-auto">
+                Gửi lời chúc
+              </button>
+              <p id="formFeedback" class="mt-3 hidden text-center text-sm font-medium text-brand-dark md:text-right"></p>
+            </div>
           </div>
         </form>
       </div>
     </section>
 
     <section id="map" class="bg-brand-dark/5">
-      <div class="mx-auto max-w-5xl px-6 py-20 md:py-28">
-        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+      <div class="mx-auto max-w-6xl px-6 py-24 md:py-32">
+        <div class="reveal grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <p class="text-sm uppercase tracking-[0.4em] text-brand">Địa Điểm</p>
-            <h2 class="mt-4 font-heading text-4xl text-brand-dark md:text-5xl">Hẹn gặp ở Vĩnh Long</h2>
-            <p class="mt-4 text-lg text-slate-600">Đám cưới sẽ diễn ra tại quê hương thân thương của chúng mình. Cảm ơn bạn đã không ngại đường xa để đến chung vui.</p>
+            <p class="text-xs uppercase tracking-[0.5em] text-brand-dark">Địa Điểm</p>
+            <h2 class="mt-4 font-heading text-4xl text-midnight md:text-5xl">Hẹn gặp ở Vĩnh Long</h2>
+            <p class="mt-4 text-lg text-slate-600">
+              Đám cưới sẽ diễn ra tại quê hương thân thương của chúng mình. Cảm ơn bạn đã không ngại đường xa để đến chung vui.
+            </p>
             <div class="mt-8 space-y-4 text-sm text-slate-600">
-              <p><span class="font-semibold text-brand-dark">Nhà gái:</span> Xã Vĩnh Phú Tây, Huyện Phước Long, Tỉnh Bạc Liêu.</p>
+              <p><span class="font-semibold text-brand-dark">Nhà gái:</span> Xã Vĩnh Phú Tây, Huyện Phước Long, Tỉnh Bạc
+                Liêu.</p>
               <p><span class="font-semibold text-brand-dark">Nhà trai:</span> Xã Long Phú, Huyện Tam Bình, Tỉnh Vĩnh Long.</p>
             </div>
           </div>
-          <div class="overflow-hidden rounded-3xl shadow-sm">
-            <iframe class="h-80 w-full border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.2631414687344!2d105.94911267509451!3d10.103252871201166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0b42a9f5906d7%3A0xe1e29b57d72c8d28!2zVGFtIELDrG5oLCBW4bqhbiBMw7RuZw!5e0!3m2!1svi!2svi!4v1699950000000"></iframe>
+          <div class="overflow-hidden rounded-3xl shadow-glow">
+            <iframe class="h-80 w-full border-0" loading="lazy" allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3927.2631414687344!2d105.94911267509451!3d10.103252871201166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0b42a9f5906d7%3A0xe1e29b57d72c8d28!2zVGFtIELDrG5oLCBW4bqhbiBMw7RuZw!5e0!3m2!1svi!2svi!4v1699950000000"></iframe>
           </div>
         </div>
       </div>
@@ -335,8 +594,9 @@
     </div>
   </footer>
 
-  <button id="scrollTop" class="scroll-top-button" aria-label="Scroll to top">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+  <button id="scrollTop" class="scroll-top-button" aria-label="Về đầu trang">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+      stroke-width="2" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
     </svg>
   </button>
@@ -344,60 +604,88 @@
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const mobileNav = document.getElementById('mobileNav');
-    menuToggle?.addEventListener('click', () => {
+    const navLinks = Array.from(document.querySelectorAll('a.nav-link'));
+    const header = document.querySelector('header');
+    const countdownEl = document.getElementById('countdown');
+    const timeStatus = document.getElementById('timeStatus');
+    const sendMessageBtn = document.getElementById('sendMessage');
+    const formFeedback = document.getElementById('formFeedback');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    const pageLoader = document.getElementById('pageLoader');
+    const heroSection = document.getElementById('hero');
+    let loaderActive = false;
+
+    function toggleMobileNav() {
+      if (!mobileNav) return;
       mobileNav.classList.toggle('hidden');
+      document.body.classList.toggle('overflow-hidden', !mobileNav.classList.contains('hidden'));
+    }
+
+    function closeMobileNav() {
+      if (!mobileNav || mobileNav.classList.contains('hidden')) return;
+      mobileNav.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    menuToggle?.addEventListener('click', toggleMobileNav);
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || !targetId.startsWith('#')) return;
+        event.preventDefault();
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        closeMobileNav();
+      });
     });
 
     const weddingDate = new Date('2023-03-12T09:00:00+07:00');
-    const countdownEl = document.getElementById('countdown');
-    const timeStatus = document.getElementById('timeStatus');
 
     function updateCountdown() {
+      if (!countdownEl || !timeStatus) return;
       const now = new Date();
       const diff = now.getTime() - weddingDate.getTime();
       const absDiff = Math.abs(diff);
+      timeStatus.textContent = diff >= 0 ? 'Khoảng thời gian kể từ ngày cưới' : 'Khoảng thời gian còn lại đến ngày cưới';
 
-      if (!countdownEl || !timeStatus) return;
+      const totalSeconds = Math.floor(absDiff / 1000);
+      const days = Math.floor(totalSeconds / (60 * 60 * 24));
+      const hours = Math.floor((totalSeconds / (60 * 60)) % 24);
+      const minutes = Math.floor((totalSeconds / 60) % 60);
+      const seconds = totalSeconds % 60;
 
-      if (diff >= 0) {
-        timeStatus.textContent = 'Khoảng thời gian kể từ ngày cưới';
-      } else {
-        timeStatus.textContent = 'Khoảng thời gian còn lại đến ngày cưới';
-      }
-
-      const days = Math.floor(absDiff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((absDiff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((absDiff / (1000 * 60)) % 60);
-      const seconds = Math.floor((absDiff / 1000) % 60);
-
-      countdownEl.innerHTML = `
-        <span class="rounded-full border border-white/40 px-5 py-2">${days} ngày</span>
-        <span class="rounded-full border border-white/40 px-5 py-2">${hours} giờ</span>
-        <span class="rounded-full border border-white/40 px-5 py-2">${minutes} phút</span>
-        <span class="rounded-full border border-white/40 px-5 py-2">${seconds} giây</span>`;
+      countdownEl.innerHTML = [
+        { label: 'ngày', value: days },
+        { label: 'giờ', value: hours },
+        { label: 'phút', value: minutes },
+        { label: 'giây', value: seconds }
+      ].map(({ label, value }) => `
+          <span class="rounded-full border border-white/40 px-5 py-2">
+            <span class="text-xl font-bold">${String(value).padStart(2, '0')}</span>
+            <span class="ml-2 text-xs uppercase tracking-[0.4em]">${label}</span>
+          </span>
+        `).join('');
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    const sendMessageBtn = document.getElementById('sendMessage');
-    const formFeedback = document.getElementById('formFeedback');
     sendMessageBtn?.addEventListener('click', () => {
       if (!formFeedback) return;
       formFeedback.textContent = 'Cảm ơn bạn! Chúng mình đã nhận được lời nhắn.';
       formFeedback.classList.remove('hidden');
+      formFeedback.classList.add('reveal', 'visible');
     });
-
-    const scrollTopBtn = document.getElementById('scrollTop');
-    const pageLoader = document.getElementById('pageLoader');
-    let loaderActive = false;
 
     function triggerLoader() {
       if (!pageLoader || loaderActive) return;
       loaderActive = true;
       pageLoader.classList.add('active');
       setTimeout(() => {
-        pageLoader.classList.remove('active');
+        pageLoader?.classList.remove('active');
         loaderActive = false;
       }, 1100);
     }
@@ -412,7 +700,7 @@
       }
 
       const scrollPosition = window.innerHeight + window.scrollY;
-      if (scrollPosition >= document.body.offsetHeight - 80) {
+      if (scrollPosition >= document.body.offsetHeight - 120) {
         triggerLoader();
       }
     }
@@ -423,6 +711,108 @@
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+
+    function initScrollSpy() {
+      const sections = navLinks
+        .map((link) => link.dataset.section)
+        .filter(Boolean)
+        .map((id) => document.getElementById(id));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach((link) => {
+            if (link.dataset.section === id) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        });
+      }, {
+        rootMargin: '-50% 0px -40% 0px',
+        threshold: 0
+      });
+
+      sections.forEach((section) => section && observer.observe(section));
+    }
+
+    initScrollSpy();
+
+    function revealOnScroll() {
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      revealElements.forEach((el) => observer.observe(el));
+    }
+
+    revealOnScroll();
+
+    function createFloatingPetals() {
+      if (!heroSection) return;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) return;
+      const layer = document.getElementById('petalLayer');
+      if (!layer) return;
+      const petalCount = window.innerWidth < 768 ? 12 : 24;
+      layer.innerHTML = '';
+      for (let i = 0; i < petalCount; i += 1) {
+        const petal = document.createElement('span');
+        petal.className = 'petal';
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animationDuration = `${10 + Math.random() * 12}s`;
+        petal.style.animationDelay = `${Math.random() * -15}s`;
+        petal.style.setProperty('--horizontal-shift', `${Math.random() * 120 - 60}px`);
+        layer.appendChild(petal);
+      }
+    }
+
+    createFloatingPetals();
+
+    const resizeObserver = new ResizeObserver(() => {
+      createFloatingPetals();
+    });
+
+    if (heroSection) {
+      resizeObserver.observe(heroSection);
+    }
+
+    function setViewportUnit() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    setViewportUnit();
+    window.addEventListener('resize', () => {
+      setViewportUnit();
+      createFloatingPetals();
+    });
+
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        setViewportUnit();
+        createFloatingPetals();
+      }, 300);
+    });
+
+    const observerHeader = new IntersectionObserver(([entry]) => {
+      if (!entry) return;
+      header?.classList.toggle('shadow-md', !entry.isIntersecting);
+    });
+
+    if (heroSection) {
+      observerHeader.observe(heroSection);
+    }
   </script>
 </body>
 </html>
